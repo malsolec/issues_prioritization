@@ -60,3 +60,53 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+NEWINSTALL
+.idea/workspace.xml
+web2py/parameters_8000.py
+web2py/welcome.w2p
+web2py/error.log
+web2py/logging.conf
+.idea/inspectionProfiles/*
+.idea/misc.xml
+.idea/modules.xml
+.idea/inzynierka.iml
+
+# for web2py
+cache
+databases
+errors
+sessions
+uploads
+ 
+# inherit https://github.com/github/gitignore/blob/master/Python.gitignore
+ 
+*.py[co]
+ 
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+ 
+# Installer logs
+pip-log.txt
+httpserver.log
+httpserver.pid
+
+# Unit test / coverage reports
+.coverage
+.tox
+ 
+#Translations
+*.mo
+ 
+#Mr Developer
+.mr.developer.cfg
