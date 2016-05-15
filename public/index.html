@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html ng-app="issuesBoard">
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		html 					{ overflow-y:scroll; }
+		body 					{ padding-top:50px; }
+		
+	</style>
+
+	
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+
+	<script src="controllers/issueController.js"></script> 
+	<script src="services/issueService.js"></script>
+	<script src="core.js"></script> 
+
+
+</head>
+<body ng-controller="mainController">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div ng-repeat="issue in issues">
+						 {{issue.title}}
+				</div>
+				<button ng-click="sync()">Sync</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,112 +1,30 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*,cover
-.hypothesis/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
+lib-cov
+*.seed
 *.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
 
-# Sphinx documentation
-docs/_build/
+pids
+logs
+results
 
-# PyBuilder
-target/
+npm-debug.log
+node_modules
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
 
-#Ipython Notebook
-.ipynb_checkpoints
+pids
+logs
+results
 
-NEWINSTALL
-.idea/workspace.xml
-web2py/parameters_8000.py
-web2py/welcome.w2p
-web2py/error.log
-web2py/logging.conf
-.idea/inspectionProfiles/*
-.idea/misc.xml
-.idea/modules.xml
-.idea/inzynierka.iml
-
-# for web2py
-cache
-databases
-errors
-sessions
-uploads
- 
-# inherit https://github.com/github/gitignore/blob/master/Python.gitignore
- 
-*.py[co]
- 
-# Packages
-*.egg
-*.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-develop-eggs
-.installed.cfg
- 
-# Installer logs
-pip-log.txt
-httpserver.log
-httpserver.pid
-
-# Unit test / coverage reports
-.coverage
-.tox
- 
-#Translations
-*.mo
- 
-#Mr Developer
-.mr.developer.cfg
+npm-debug.log
+node_modules

@@ -1,0 +1,15 @@
+{
+  "name": "issues-prioritization",
+  "version": "0.0.1",
+  "description": "App to set up priority of github issues by community.",
+  "main": "server.js",
+  "author": "malsolec",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.13.4",
+    "method-override": "^2.1.3",
+    "mongoose": "^4.4.12",
+    "morgan": "^1.1.1",
+    "request-json": "^0.5.6"
+  }
+}
