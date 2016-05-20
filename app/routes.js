@@ -4,14 +4,19 @@ var IssueScore = mongoose.model('IssueScore');
 var Project = mongoose.model('Project');
 var User = mongoose.model('User');
 
-function connectToGithub(res) {
+function connectToGithub(req,res) {
 
 	var request = require('request');
  
+	req =req.body.text;// = 'https://api.github.com/repos/autyzm-pg/mroza/issues';
+
+ 	var agent = req.split("/")[3];
 	var options = {
-	 	url: 'https://api.github.com/repos/autyzm-pg/mroza/issues',
+		url: req,
+	 	//url: 'https://api.github.com/repos/autyzm-pg/mroza/issues',
 	  headers: {
-	    'User-Agent': 'autyzm-pg'
+		'User-Agent': agent
+	    //'User-Agent': 'autyzm-pg'
 	  }
 	};
 	function callback(error, response, body) {
@@ -50,7 +55,7 @@ module.exports = function (router) {
 	});
 
 	router.get('/githubsync', function(req, res, next) { 
-		connectToGithub(res)
+		connectToGithub(req.body.text,res)
         Issue.find(function(err, issues){
 		    if(err){ return next(err); }
 		    res.json(issues);

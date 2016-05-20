@@ -8,7 +8,7 @@ angular.module('issueController', [])
             });
 
     $scope.sync = function(){
-       Issues.githubsync().success(function(data) {
+       Issues.githubsync($scope.formData).success(function(data) {
                 $scope.issues = data;
             });
     } 

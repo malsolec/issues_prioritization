@@ -4,8 +4,8 @@ angular.module('issueService', [])
 			get : function() {
 				return $http.get('/issues');
 			},
-			githubsync : function() {
-				return $http.get('/githubsync');
+			githubsync : function(formData) {
+				return $http.get('/githubsync',formData);
 			}
 		}
 	}]);
