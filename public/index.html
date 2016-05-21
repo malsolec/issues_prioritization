@@ -19,18 +19,38 @@
 
 	<script src="controllers/issueController.js"></script> 
 	<script src="services/issueService.js"></script>
+	<script src="controllers/projectController.js"></script>
+	<script src="services/projectService.js"></script>
 	<script src="core.js"></script> 
 
 
 </head>
-<body ng-controller="mainController">
+<body >
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-4 col-sm-offset-4">
-				<div ng-repeat="issue in issues">
-						 {{issue.title}}
+
+		<div class="row" ng-controller="projectController">
+			<label>Project:
+				<select class="form-control">
+					<option ng-repeat="project in projects" value="{{project._id}}">{{project.alias}}</option>
+				</select>
+			</label><br/>
+		</div>
+
+		<div ng-controller="issueController">
+			<div class="row">
+				<form>
+						<div class="form-group">
+							<input type="text" class="form-control input-lg text-center" ng-model="formData.text">
+						</div>
+						<button type="submit" class="btn btn-primary btn-lg" ng-click="sync()">Sync</button>
+				</form>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-4">
+					<div ng-repeat="issue in issues">
+							 {{issue.title}}
+					</div>
 				</div>
-				<button ng-click="sync()">Sync</button>
 			</div>
 		</div>
 	</div>

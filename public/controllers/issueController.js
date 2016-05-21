@@ -1,16 +1,17 @@
 angular.module('issueController', [])
-.controller('mainController', ['$scope','$http','Issues', function($scope, $http, Issues)  {
+.controller('issueController', ['$scope','$http','Issues', function($scope, $http, Issues)  {
 
+        $scope.formData = {};
 
-    Issues.get()
+        Issues.get()
             .success(function(data) {
                 $scope.issues = data;
             });
 
-    $scope.sync = function(){
-       Issues.githubsync().success(function(data) {
-                $scope.issues = data;
-            });
-    } 
+        $scope.sync = function(){
+           Issues.githubsync($scope.formData).success(function(data) {
+                    $scope.issues = data;
+                });
+        }
 
 }]);
