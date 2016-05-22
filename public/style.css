@@ -1,0 +1,36 @@
+/**
+ * MUI Colors module
+ */
+body {
+  font: Helvetica, sans-serif;
+  font-size: 20px;
+  color: "grey";
+  background-color: #64B5F6; }
+  body .mui-container {
+    background-color: #F5F5F5;
+    box-shadow: 2px 2px 2px #888888;
+    margin: 6%; }
+    body .mui-container .mui-row .mui-form--inline {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 2%; }
+      body .mui-container .mui-row .mui-form--inline .mui-textfield {
+        width: 80%; }
+    body .mui-container .mui-row .issue {
+      background-color: #FFF;
+      padding: 2%;
+      margin: 3%;
+      box-shadow: 2px 2px 2px #888888; }
+  body .alert {
+    display: none; }
+  body .mui-appbar {
+    background-color: #9E9E9E;
+    padding: 2%;
+    box-shadow: 2px 0px 0px #888888; }
+    body .mui-appbar select {
+      color: #757575; }
+    body .mui-appbar h1 {
+      color: #F9FBE7;
+      text-transform: uppercase; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,15 +1,12 @@
-var mongoose = require('mongoose');
-var    autoIncrement = require('mongoose-auto-increment');
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    autoIncrement = require('mongoose-auto-increment');
 
-autoIncrement.initialize(mongoose.connection);
-
-var IssueSchema = new mongoose.Schema( {
+var IssueSchema = new Schema( {
   number    : Number,
-  title   : String,
-  project: { type: mongoose.Schema.Types.ObjectId, ref: 'Project' },
-  scores : [{ type: mongoose.Schema.Types.ObjectId, ref: 'IssueScore' }]
+  title   : String
 });
 
-IssueSchema.plugin(autoIncrement.plugin, 'Issue');
+IssueSchema.plugin(autoIncrement.plugin, {model:'Issue', field:'id'});
 module.exports = mongoose.model('Issue',IssueSchema);
 

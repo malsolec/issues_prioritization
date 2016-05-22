@@ -1,5 +1,5 @@
 .idea/
-
+bower_components/
 lib-cov
 *.seed
 *.log

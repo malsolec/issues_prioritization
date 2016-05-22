@@ -1,0 +1,62 @@
+@import "../bower_components/mui/src/sass/mui/colors";
+
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+$theme-color:'blue';
+$primary-color: 'grey';
+$margin: 6%;
+$margin-small: 3%;
+$padding: 2%;
+
+body {
+  font: $font-stack;
+  font-size: 20px;
+  color: $primary-color;
+  background-color: mui-color($theme-color, '300');
+
+  .mui-container{
+    background-color: mui-color($primary-color, '100');
+    box-shadow: 2px 2px 2px #888888;
+    margin: $margin;
+
+      .mui-row {
+
+        .mui-form--inline{
+          .mui-textfield{
+            width: 80%;
+          }
+          margin-left: auto;
+          margin-right: auto;
+          padding: $padding;
+        }
+        .issue {
+          background-color: mui-color('white');
+          padding: $padding;
+          margin: $margin-small;
+          box-shadow: 2px 2px 2px #888888;
+        }
+      }
+
+  }
+
+  .alert{
+    display: none;
+  }
+
+  .mui-appbar{
+    background-color: mui-color($primary-color, '500');
+    padding: $padding;
+    box-shadow: 2px 0px 0px #888888;
+    select{
+      color: mui-color('grey','600');
+    }
+
+    h1{
+      color: mui-color('lime','50');
+      text-transform: uppercase;
+    }
+  }
+
+
+}

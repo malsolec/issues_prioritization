@@ -5,10 +5,16 @@ angular.module('issueService', [])
 			return $http.post('/githubsync',formData);
 		}
 
+		function issueByProject(data) {
+			return $http.post('/issueByProject', data);
+		}
+		function get() {
+			return $http.get('/issues');
+		}
+
 		return {
-			get : function() {
-				return $http.get('/issues');
-			},
-			githubsync : githubsync
+			get : get,
+			githubsync : githubsync,
+			issueByProject : issueByProject
 		}
 	}]);

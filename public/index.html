@@ -6,51 +6,65 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	<style>
-		html 					{ overflow-y:scroll; }
-		body 					{ padding-top:50px; }
-		
-	</style>
-
-	
+	<link href="//cdn.muicss.com/mui-0.5.9/css/mui.min.css" rel="stylesheet" type="text/css" />
+	<script src="//cdn.muicss.com/mui-0.5.9/angular/mui-angular.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
 
 	<script src="controllers/issueController.js"></script> 
 	<script src="services/issueService.js"></script>
-	<script src="controllers/projectController.js"></script>
 	<script src="services/projectService.js"></script>
 	<script src="core.js"></script> 
 
 
 </head>
 <body >
-	<div class="container">
+	<div ng-controller="issueController">
 
-		<div class="row" ng-controller="projectController">
-			<label>Project:
-				<select class="form-control">
-					<option ng-repeat="project in projects" value="{{project._id}}">{{project.alias}}</option>
-				</select>
-			</label><br/>
+
+			<div class="mui-appbar">
+				<table width="100%">
+					<tr style="vertical-align:middle;">
+						<td class="mui--appbar-height">
+							<h1>
+							{{selectedProject}}
+							</h1>
+						</td>
+						<td class="mui--appbar-height" align="right">
+							<label>Choose project:
+								<select class="mui-dropdown" ng-options="project.alias for project in projects" ng-model="selectedItem" ng-change="update()" >
+								</select>
+							</label>
+							<button class="mui-btn mui-btn--fab mui-btn--primary" ng-mogel="ifAdd" ng-click="add()">Add</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		<div class="check-element animate-show" ng-show="ifAdd">
+			<div class="mui-container">
+				<div class="mui-row">
+					<form class="mui-form--inline">
+						<label>Github api url:
+						<div class="mui-textfield">
+							<input type="text" class="form-control input-lg text-center" ng-model="formData.text">
+						</div></label>
+						<button type="submit" class="mui-btn mui-btn--primary" ng-click="sync()">Add project</button>
+					</form>
+				</div>
+			</div>
 		</div>
 
-		<div ng-controller="issueController">
-			<div class="row">
-				<form>
-						<div class="form-group">
-							<input type="text" class="form-control input-lg text-center" ng-model="formData.text">
-						</div>
-						<button type="submit" class="btn btn-primary btn-lg" ng-click="sync()">Sync</button>
-				</form>
-			</div>
-			<div class="row">
-				<div class="col-sm-4 col-sm-offset-4">
+		<div class="mui-container">
+
+			<div class="mui-row">
+
 					<div ng-repeat="issue in issues">
+						<div class="issue">
 							 {{issue.title}}
+						</div>
 					</div>
-				</div>
+
 			</div>
 		</div>
 	</div>
