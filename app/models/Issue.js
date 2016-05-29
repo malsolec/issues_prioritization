@@ -4,7 +4,8 @@ var mongoose = require('mongoose'),
 
 var IssueSchema = new Schema( {
   number    : Number,
-  title   : String
+  title   : String,
+  priority: String
 });
 
 IssueSchema.plugin(autoIncrement.plugin, {model:'Issue', field:'id'});

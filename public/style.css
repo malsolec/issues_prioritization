@@ -16,11 +16,43 @@ body {
       padding: 2%; }
       body .mui-container .mui-row .mui-form--inline .mui-textfield {
         width: 80%; }
-    body .mui-container .mui-row .issue {
-      background-color: #FFF;
-      padding: 2%;
-      margin: 3%;
-      box-shadow: 2px 2px 2px #888888; }
+    body .mui-container .mui-row ul {
+      display: block;
+      list-style-type: none; }
+      body .mui-container .mui-row ul li {
+        display: inline-block; }
+        body .mui-container .mui-row ul li .issue {
+          background-color: #FFF;
+          padding: 2%;
+          margin: 3%;
+          box-shadow: 2px 2px 2px #888888; }
+    body .mui-container .mui-row .undone-issues {
+      background-color: #EEEEEE;
+      margin: 3%; }
+      body .mui-container .mui-row .undone-issues h1 {
+        color: white;
+        padding: 2%;
+        background-color: #9E9E9E; }
+    body .mui-container .mui-row .prioritized-issues {
+      padding: 2%; }
+      body .mui-container .mui-row .prioritized-issues .priority-header {
+        background-color: #1E88E5;
+        text-align: center;
+        color: white; }
+      body .mui-container .mui-row .prioritized-issues .done-issues {
+        min-height: 400px;
+        padding: 2%; }
+        body .mui-container .mui-row .prioritized-issues .done-issues .issue {
+          background-color: #FFF;
+          padding: 2%;
+          margin: 3%;
+          box-shadow: 2px 2px 2px #888888; }
+      body .mui-container .mui-row .prioritized-issues .high {
+        background-color: #E57373; }
+      body .mui-container .mui-row .prioritized-issues .mid {
+        background-color: #EF9A9A; }
+      body .mui-container .mui-row .prioritized-issues .low {
+        background-color: #FFCDD2; }
   body .alert {
     display: none; }
   body .mui-appbar {

@@ -11,10 +11,15 @@ angular.module('issueService', [])
 		function get() {
 			return $http.get('/issues');
 		}
+		
+		function update(data) {
+			return $http.post('/issueUpdate', data);
+		}
 
 		return {
 			get : get,
 			githubsync : githubsync,
-			issueByProject : issueByProject
+			issueByProject : issueByProject,
+			update : update
 		}
 	}]);

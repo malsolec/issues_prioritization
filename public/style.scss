@@ -1,8 +1,9 @@
-@import "../bower_components/mui/src/sass/mui/colors";
+@import "bower_components/mui/src/sass/mui/colors";
 
 
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
+$priority-color: 'red';
 $theme-color:'blue';
 $primary-color: 'grey';
 $margin: 6%;
@@ -30,12 +31,68 @@ body {
           margin-right: auto;
           padding: $padding;
         }
-        .issue {
-          background-color: mui-color('white');
-          padding: $padding;
-          margin: $margin-small;
-          box-shadow: 2px 2px 2px #888888;
+        ul{
+          display: block;
+          li {
+            display: inline-block;
+            .issue {
+              background-color: mui-color('white');
+              padding: $padding;
+              margin: $margin-small;
+              box-shadow: 2px 2px 2px #888888;
+            }
+          }
+
+          list-style-type: none;
         }
+
+
+        .undone-issues {
+          background-color: mui-color($primary-color, '200');
+          margin: $margin-small;
+
+          h1{
+            color: white;
+            padding: $padding;
+            background-color: mui-color($primary-color, '500');
+          }
+        }
+
+        .prioritized-issues {
+          padding: $padding;
+
+          .priority-header{
+            background-color: mui-color($theme-color, '600');
+            text-align: center;
+            color: white;
+          }
+
+          .done-issues {
+            min-height: 400px;
+            padding: $padding;
+            .issue {
+              background-color: mui-color('white');
+              padding: $padding;
+              margin: $margin-small;
+              box-shadow: 2px 2px 2px #888888;
+            }
+
+          }
+
+          .high {
+            background-color: mui-color($priority-color, '300');
+          }
+
+          .mid {
+            background-color: mui-color($priority-color, '200');
+          }
+
+          .low {
+            background-color: mui-color($priority-color, '100');
+          }
+        }
+
+
       }
 
   }

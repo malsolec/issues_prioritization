@@ -1,1 +1,1 @@
-angular.module('issuesBoard', ['issueController', 'issueService', 'projectService']);
+angular.module('issuesBoard', ['issueController', 'issueService', 'projectService','ngDraggable']);

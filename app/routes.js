@@ -31,7 +31,8 @@ function connectToGithub(req, res) {
 				  for (var i = 0; i < obj.length; i++) {
 					  var issue = new Issue({
 						  number    : obj[i].number,
-						  title   : obj[i].title
+						  title   : obj[i].title,
+						  priority: "undone"
 					  });
 					  issue.save(function(err){if(err){console.log(err);}});
 					  project.issues.push(issue);
@@ -73,6 +74,16 @@ module.exports = function (router) {
 
 		    res.json(issue);
 		  
+		});
+	});
+
+
+	router.post('/issueUpdate', function(req, res, next) {
+		Issue.findOne({ id: req.body.id },  function(err, issue){
+			if(err){console.log(err);}
+			issue.priority = req.body.priority;
+			issue.save()
+			res.send(issue);
 		});
 	});
 
