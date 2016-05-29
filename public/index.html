@@ -41,6 +41,19 @@
 				</table>
 			</div>
 
+		<div class="check-element animate-show" ng-show="ifError">
+			<div class="mui-container">
+				<div class="mui-row">
+						<div class="mui-col-md-11">
+							<h2>{{error}}</h2>
+						</div>
+					<div class="mui-col-md-1">
+						<button class="mui-btn mui-btn--fab mui-btn--primary" ng-model="ifError" ng-click="closeError()">X</button>
+						</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="check-element animate-show" ng-show="ifAdd">
 			<div class="mui-container">
 				<div class="mui-row">

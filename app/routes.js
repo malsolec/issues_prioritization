@@ -26,7 +26,9 @@ function connectToGithub(req, res) {
 		  });
 
 		  Project.findOne({url:req}, function (err, doc) {
-			  if(doc){console.log("project is in db")}
+			  if(doc){
+				  res.send({error: "Project has been added already."})
+			  }
 			  else{
 				  for (var i = 0; i < obj.length; i++) {
 					  var issue = new Issue({

@@ -5,7 +5,8 @@ angular.module('issueController', [])
         $scope.highIssues = [];
         $scope.midIssues = [];
         $scope.lowIssues = [];
-        $scope.ifNewIssuesAre = true;
+        $scope.ifNewIssuesAre = false;
+        $scope.ifError = false;
 
         function checkPriority(issues){
             return issues.priority == this;
@@ -18,22 +19,32 @@ angular.module('issueController', [])
             $scope.lowIssues = data.filter(checkPriority, "low");
             $scope.issues.length == 0 ? $scope.ifNewIssuesAre = false : $scope.ifNewIssuesAre = true;
         }
-        Issues.get()
-            .success(function(data) {
-                refreshIssuesView(data);
-            });
 
+        $scope.closeError = function () {
+            $scope.ifError = false;
+        }
+     
         $scope.sync = function(){
            Issues.githubsync($scope.formData).success(function(data) {
-                    $scope.issues = data;
+
+                    if(data.error){
+                       $scope.ifError = true;
+                       $scope.error = data.error;
+                   }
                    var url = $scope.formData.text;
                    var newAlias = url.split('/')[5];
                    $scope.ifAdd == true ? $scope.ifAdd = false : $scope.ifAdd = true;
                    $scope.selectedProject = newAlias;
                    Projects.get()
                        .success(function(data) {
-                           refreshIssuesView(data);
+                           $scope.projects = data;
+                           $scope.selectedItem = data.find(function (project) {
+                               return project.url == url;
+                           })
                        });
+                   Issues.issueByProject({text: url}).success(function(data) {
+                       refreshIssuesView(data);
+                   });
                 });
 
 
