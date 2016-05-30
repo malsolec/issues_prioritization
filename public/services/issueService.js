@@ -1,8 +1,8 @@
 angular.module('issueService', [])
 	.factory('Issues', ['$http',function($http) {
 
-		function githubsync(formData) {
-			return $http.post('/githubsync',formData);
+		function githubSync(data) {
+			return $http.post('/githubsync',data);
 		}
 
 		function issueByProject(data) {
@@ -18,7 +18,7 @@ angular.module('issueService', [])
 
 		return {
 			get : get,
-			githubsync : githubsync,
+			githubSync : githubSync,
 			issueByProject : issueByProject,
 			update : update
 		}

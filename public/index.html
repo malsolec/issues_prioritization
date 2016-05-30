@@ -32,10 +32,10 @@
 						</td>
 						<td class="mui--appbar-height" align="right">
 							<label>Choose project:
-								<select class="mui-dropdown" ng-options="project.alias for project in projects" ng-model="selectedItem" ng-change="update()" >
+								<select class="mui-dropdown" ng-options="project.alias for project in projects" ng-model="selectedItem" ng-change="chooseProject()" >
 								</select>
 							</label>
-							<button class="mui-btn mui-btn--fab mui-btn--primary" ng-mogel="ifAdd" ng-click="add()">Add</button>
+							<button class="mui-btn mui-btn--fab mui-btn--primary" ng-model="ifAdd" ng-click="add()">Add</button>
 						</td>
 					</tr>
 				</table>
@@ -77,8 +77,8 @@
 						New issues
 					</h1>
 					<ul>
-						<li ng-repeat="issue in issues">
-							<div class="issue" ng-drag="true" ng-drag-data="issue" data-allow-transform="true"  ng-drag-success="onDragUndoneSuccess($data,$event)">
+						<li ng-repeat="issue in issues | filter: {'priority' : 'undone'}">
+							<div class="issue" ng-drag="true" ng-drag-data="issue" data-allow-transform="true"  ng-drag-success="onDragInPrioritySuccess($data,$event)">
 								{{issue.title}}
 							</div>
 						</li>
@@ -94,9 +94,9 @@
 							<div class="mui-row priority-header">
 								<h1>High priority</h1>
 							</div>
-							<div class="mui-row done-issues high" ng-drop="true" ng-drop-success="onDropInHighPriorityComplete($data,$event)">
-								<div class="issue" ng-repeat="highIssue in highIssues" ng-drag="true" ng-drag-data="highIssue" ng-drag-success="onDragInHighPrioritySuccess($data,$event)">
-									{{highIssue.title}}
+							<div class="mui-row done-issues high" ng-drop="true" ng-drop-success="onDropInPriorityComplete($data,$event,'high')">
+								<div class="issue" ng-repeat="issue in issues | filter: {'priority' : 'high'}" ng-drag="true" ng-drag-data="issue" ng-drag-success="onDragInPrioritySuccess($data,$event)">
+									{{issue.title}}
 								</div>
 							</div>
 						</div>
@@ -106,9 +106,9 @@
 							<div class="mui-row priority-header">
 								<h1>Medium priority</h1>
 							</div>
-							<div class="mui-row done-issues mid" ng-drop="true" ng-drop-success="onDropInMidPriorityComplete($data,$event)">
-								<div class="issue" ng-repeat="midIssue in midIssues" ng-drag="true" ng-drag-data="midIssue" ng-drag-success="onDragInMidPrioritySuccess($data,$event)">
-									{{midIssue.title}}
+							<div class="mui-row done-issues mid" ng-drop="true" ng-drop-success="onDropInPriorityComplete($data,$event,'mid')">
+								<div class="issue" ng-repeat="issue in issues | filter: {'priority' : 'mid'}" ng-drag="true" ng-drag-data="issue" ng-drag-success="onDragInPrioritySuccess($data,$event)">
+									{{issue.title}}
 								</div>
 							</div>
 						</div>
@@ -118,9 +118,9 @@
 							<div class="mui-row priority-header">
 								<h1>Low priority</h1>
 							</div>
-							<div class="mui-row done-issues low" ng-drop="true" ng-drop-success="onDropInLowPriorityComplete($data,$event)">
-								<div class="issue" ng-repeat="lowIssue in lowIssues" ng-drag="true" ng-drag-data="lowIssue" ng-drag-success="onDragInLowPrioritySuccess($data,$event)">
-									{{lowIssue.title}}
+							<div class="mui-row done-issues low" ng-drop="true" ng-drop-success="onDropInPriorityComplete($data,$event,'low')">
+								<div class="issue" ng-repeat="issue in issues | filter: {'priority' : 'low'}" ng-drag="true" ng-drag-data="issue" ng-drag-success="onDragInPrioritySuccess($data,$event)">
+									{{issue.title}}
 								</div>
 							</div>
 						</div>
