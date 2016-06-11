@@ -28,9 +28,16 @@ bower install ngDraggable
 ```
 node server.js
 ```
-- Watch app on: localhost:8080,
-add link to api: https://api.github.com/repos/malsolec/issues_prioritization/issues ,
-and you will see issues :)
+### To see how it works now:
 
-If you would like to join the project it is open.
+Go on localhost:8080,
+
+- [ ] Click **Add** button  
+- [ ] Set github repository on: **issues_prioritization**
+- [ ] Set github owner name on: **malsolec** 
+
+and you will see issues from my repo:)
+
+### If you would like to join the project it is open.
+You can see first idea of this app in [doc](https://github.com/malsolec/issues_prioritization/blob/master/doc/idea.pdf) folder on repo. 
 
