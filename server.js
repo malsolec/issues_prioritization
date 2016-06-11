@@ -10,6 +10,7 @@ autoIncrement.initialize(mongoose.connection);
 
 require('./app/models/Issue');
 require('./app/models/Project');
+require('./app/GithubConnector');
 // configuration =================
 
 

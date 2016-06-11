@@ -58,10 +58,16 @@
 			<div class="mui-container">
 				<div class="mui-row">
 					<form class="mui-form--inline">
-						<label>Github api url:
-						<div class="mui-textfield">
-							<input type="text" class="form-control input-lg text-center" ng-model="formData.text">
-						</div></label>
+						<label>Github repository:
+							<div class="mui-textfield">
+								<input type="text" class="form-control input-lg text-center" ng-model="formData.repoName">
+							</div>
+						</label>
+						<label>Github owner nick:
+							<div class="mui-textfield">
+								<input type="text" class="form-control input-lg text-center" ng-model="formData.repoOwnerName">
+							</div>
+						</label>
 						<button type="submit" class="mui-btn mui-btn--primary" ng-click="sync()">Add project</button>
 					</form>
 				</div>

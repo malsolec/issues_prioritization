@@ -21,14 +21,18 @@ angular.module('issueController', [])
         $scope.sync = function(){
            Issues.githubSync($scope.formData).success(function(data) {
 
-                    if(data.error){
+               if(!data.repoNotFoundError){
+                   if(data.alreadyExistsError){
                        $scope.ifError = true;
-                       $scope.error = data.error;
+                       $scope.error = data.alreadyExistsError;
                    }
-                   var url = $scope.formData.text;
-                   var newAlias = url.split('/')[5];
+                   else{
+                       $scope.ifError = false;
+                   }
+
+                   var url =  "https://api.github.com/repos/".concat($scope.formData.repoOwnerName,"/",$scope.formData.repoName, "/issues")
                    $scope.ifAdd == true ? $scope.ifAdd = false : $scope.ifAdd = true;
-                   $scope.selectedProject = newAlias;
+                   $scope.selectedProject = $scope.formData.repoName;
                    Projects.get()
                        .success(function(data) {
                            $scope.projects = data;
@@ -39,10 +43,14 @@ angular.module('issueController', [])
                    Issues.issueByProject({text: url}).success(function(data) {
                        refreshIssuesView(data);
                    });
-                });
 
-
-        }
+                }
+               else{
+                    $scope.ifError = true;
+                    $scope.error = data.repoNotFoundError;
+                }
+        })
+        };
 
         Projects.get()
             .success(function(data) {
@@ -53,6 +61,8 @@ angular.module('issueController', [])
             $scope.selectedProject = $scope.selectedItem.alias;
             Issues.issueByProject({text: $scope.selectedItem.url}).success(function(data) {
                 refreshIssuesView(data);
+                $scope.ifAdd = false;
+                $scope.ifError = false;
             });
 
         }
